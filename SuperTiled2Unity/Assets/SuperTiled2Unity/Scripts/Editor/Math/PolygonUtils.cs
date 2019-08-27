@@ -30,7 +30,7 @@ namespace SuperTiled2Unity.Editor
                 // And we can have complex polygons represented by one object
                 var composite = go.AddComponent<CompositeCollider2D>();
                 composite.geometryType = CompositeCollider2D.GeometryType.Polygons;
-                composite.generationType = CompositeCollider2D.GenerationType.Manual;
+                composite.generationType = CompositeCollider2D.GenerationType.Synchronous;
 
                 // Add polygon colliders
                 foreach (var path in convexPolygons)

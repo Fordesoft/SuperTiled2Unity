@@ -65,7 +65,16 @@ namespace SuperTiled2Unity.Editor
             var go = renderer.gameObject;
 
             SortingLayerCheck(go);
-            renderer.sortingLayerName = m_CurrentSortLayerName;
+
+            if (renderer.name.ToLower().Contains("FG") || renderer.name.ToLower().Contains("Foreground"))
+            {
+                renderer.sortingLayerName = "Tiles (foreground)";
+            }
+            else
+            {
+                renderer.sortingLayerName = "Tiles (background)";
+            }
+            //renderer.sortingLayerName = m_CurrentSortLayerName;
             renderer.sortingOrder = m_CurrentSortOrder;
 
             return m_CurrentSortLayerName;
