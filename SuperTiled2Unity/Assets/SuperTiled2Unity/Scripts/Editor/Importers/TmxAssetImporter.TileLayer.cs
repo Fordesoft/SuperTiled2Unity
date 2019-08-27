@@ -339,7 +339,10 @@ namespace SuperTiled2Unity.Editor
             tilemap.SetTileFlags(pos3, TileFlags.LockAll);
 
             // Do we have any colliders on the tile to be gathered?
-            m_CurrentCollisionBuilder.PlaceTileColliders(m_MapComponent, tile, tileId, pos3);
+            
+            if (!tilemap.name.ToLower().Contains("nocollision") && !tilemap.name.ToLower().Contains("no collision")) {
+                m_CurrentCollisionBuilder.PlaceTileColliders(m_MapComponent, tile, tileId, pos3);
+            }
         }
 
         private void ReadTileIds_Xml(XElement xElement, ref List<uint> tileIds)
